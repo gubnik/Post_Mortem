@@ -9,10 +9,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.team_prometheus.post_mortem.init.MobEffects;
+import net.team_prometheus.post_mortem.init.ParticleTypes;
 import net.team_prometheus.post_mortem.item.ModItems;
 import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod(Post_Mortem.MOD_ID)
 public class Post_Mortem
 {
@@ -22,6 +23,8 @@ public class Post_Mortem
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        MobEffects.REGISTRY.register(modEventBus);
+        ParticleTypes.REGISTRY.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
