@@ -1,0 +1,9 @@
+{
+  "parent": "post_mortem:custom/tombstone",
+  "textures": {
+    "all": "post_mortem:blocks/tombstone",
+    "particle": "post_mortem:blocks/tombstone",
+    "0": "post_mortem:blocks/tombstone"
+  },
+  "render_type": "solid"
+}

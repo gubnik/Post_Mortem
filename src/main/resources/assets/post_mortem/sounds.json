@@ -1,0 +1,22 @@
+{
+  "bleeding_sound": {
+    "category": "player",
+    "subtitle": "subtitles.bleeding_sound",
+    "sounds": [
+      {
+        "name": "post_mortem:bleeding_sound",
+        "stream": false
+      }
+    ]
+  },
+  "cursed_folio_page_sound": {
+    "category": "player",
+    "subtitle": "subtitles.cursed_folio_page_sound",
+    "sounds": [
+      {
+        "name": "post_mortem:cursed_folio_page_sound",
+        "stream": false
+      }
+    ]
+  }
+}

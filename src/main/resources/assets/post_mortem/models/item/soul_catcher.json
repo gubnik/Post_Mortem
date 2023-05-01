@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "post_mortem:items/soul_catcher"
+  },
+  "overrides":[
+  	{ "predicate": { "custom_model_data": 1}, "model": "post_mortem:item/soul_catcher_charged" }
+  ]
+}

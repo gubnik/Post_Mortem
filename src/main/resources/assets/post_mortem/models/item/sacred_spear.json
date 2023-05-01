@@ -1,0 +1,10 @@
+{
+  "parent": "post_mortem:custom/sacred_spear",
+  "textures": {
+    "0": "post_mortem:blocks/sacred_spear",
+    "particle": "post_mortem:items/sacred_spear"
+  },
+  "overrides":[
+  	{ "predicate": { "custom_model_data": 1}, "model": "post_mortem:item/sacred_spear_activated" }
+  	]
+}

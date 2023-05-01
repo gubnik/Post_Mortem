@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "post_mortem:block/wooden_cross"
+    },
+    "facing=east": {
+      "model": "post_mortem:block/wooden_cross",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "post_mortem:block/wooden_cross",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "post_mortem:block/wooden_cross",
+      "y": 270
+    }
+  }
+}

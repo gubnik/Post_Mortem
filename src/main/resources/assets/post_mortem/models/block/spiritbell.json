@@ -1,0 +1,8 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "post_mortem:blocks/spiritbell",
+    "particle": "post_mortem:blocks/spiritbell"
+  },
+  "render_type": "cutout"
+}

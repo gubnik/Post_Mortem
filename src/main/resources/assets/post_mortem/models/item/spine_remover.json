@@ -1,0 +1,7 @@
+{
+  "parent": "post_mortem:custom/spine_remover",
+  "textures": {
+    "2": "post_mortem:blocks/spine_remover",
+    "particle": "post_mortem:items/spine_remover"
+  }
+}

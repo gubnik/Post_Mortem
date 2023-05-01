@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "post_mortem:block/tombstone"
+    },
+    "facing=east": {
+      "model": "post_mortem:block/tombstone",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "post_mortem:block/tombstone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "post_mortem:block/tombstone",
+      "y": 270
+    }
+  }
+}

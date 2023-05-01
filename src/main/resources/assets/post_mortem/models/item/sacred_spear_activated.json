@@ -1,0 +1,7 @@
+{
+  "parent": "post_mortem:custom/sacred_spear_activated",
+  "textures": {
+    "0": "post_mortem:blocks/sacred_spear_activated",
+    "particle": "post_mortem:items/sacred_spear_activated"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "post_mortem:custom/wooden_cross",
+  "textures": {
+    "all": "post_mortem:blocks/wooden_cross",
+    "particle": "post_mortem:blocks/wooden_cross",
+    "0": "post_mortem:blocks/wooden_cross"
+  },
+  "render_type": "solid"
+}

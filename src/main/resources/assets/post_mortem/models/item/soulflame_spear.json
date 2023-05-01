@@ -1,0 +1,7 @@
+{
+  "parent": "post_mortem:custom/soulflame_spear",
+  "textures": {
+    "2": "post_mortem:blocks/soulflame_spear",
+    "particle": "post_mortem:items/soulflame_spear"
+  }
+}

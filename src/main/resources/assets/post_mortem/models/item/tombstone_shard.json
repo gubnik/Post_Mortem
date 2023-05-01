@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "post_mortem:items/tombstone_fragment"
+  }
+}
