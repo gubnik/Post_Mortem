@@ -5,11 +5,11 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.team_prometheus.post_mortem.item.ModItems;
 
 public class PostMortemTabs {
-    public static CreativeModeTab TAB_PM_SOULBENDING_TAB;
-    public static CreativeModeTab TAB_PM_SANGUIMANCY_TAB;
+    public static CreativeModeTab SOULBENDING_TAB;
+    public static CreativeModeTab SANGUIMANCY_TAB;
 
     public static void load() {
-        TAB_PM_SOULBENDING_TAB = new CreativeModeTab("tabpm_soulbending_tab") {
+        SOULBENDING_TAB = new CreativeModeTab("soulbending_tab") {
             @Override
             public ItemStack makeIcon() {
                 return new ItemStack(ModItems.SPIRIT_FRAGMENT.get());
@@ -20,7 +20,7 @@ public class PostMortemTabs {
                 return false;
             }
         };
-        TAB_PM_SANGUIMANCY_TAB = new CreativeModeTab("tabpm_sanguimancy_tab") {
+        SANGUIMANCY_TAB = new CreativeModeTab("sanguimancy_tab") {
             @Override
             public ItemStack makeIcon() {
                 return new ItemStack(ModItems.UNBOUND_BLOOD.get());

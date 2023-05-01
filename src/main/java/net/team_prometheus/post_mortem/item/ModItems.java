@@ -14,6 +14,10 @@ public class ModItems {
 
     public static final RegistryObject<Item> TOMBSTONE_SHARD = ITEMS.register("tombstone_shard",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> SPIRIT_FRAGMENT = ITEMS.register("spirit_fragment",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> UNBOUND_BLOOD = ITEMS.register("unbound_blood",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS)));
     public static void register (IEventBus eventBus){
         ITEMS.register(eventBus);
     }
