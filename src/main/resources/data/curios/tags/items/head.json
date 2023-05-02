@@ -1,0 +1,7 @@
+{
+  "replace": "false",
+  "values": [
+    "minecraft:air",
+    "post_mortem:blood_pact"
+  ]
+}
