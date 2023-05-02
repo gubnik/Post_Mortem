@@ -96,13 +96,19 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven { url 'https://maven.blamejared.com' }
     maven { url 'https://maven.kosmx.dev/' }
+    maven { url = 'https://maven.theillusivec4.top/' }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.8'
+    // patchouli
     compileOnly fg.deobf("vazkii.patchouli:Patchouli:[1.19.2-77]:api")
     runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:[1.19.2-77]")
+    // player animations
     implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:0.4.0-test1")
+    // curios
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.1.0:api")
 }
 
 jar {
