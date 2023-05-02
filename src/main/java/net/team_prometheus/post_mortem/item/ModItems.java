@@ -11,6 +11,8 @@ import net.team_prometheus.post_mortem.init.PostMortemTabs;
 import net.team_prometheus.post_mortem.item.echoes_weapons.EchoesTooltipProvider;
 
 public class ModItems {
+
+    // materials
     public static final DeferredRegister<Item> ITEMS =
         DeferredRegister.create(ForgeRegistries.ITEMS, Post_Mortem.MOD_ID);
     public static final RegistryObject<Item> TOMBSTONE_SHARD = ITEMS.register("tombstone_shard",
@@ -19,9 +21,14 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(PostMortemTabs.SOULBENDING_TAB)));
     public static final RegistryObject<Item> UNBOUND_BLOOD = ITEMS.register("unbound_blood",
             () -> new Item(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB)));
-    public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
-            () -> new EchoesTooltipProvider(5,666, -2.4f, 0f, 4, 17, Ingredient.of(ModItems.UNBOUND_BLOOD.get())));
 
+    // weapons, echo variants
+    public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
+            () -> new EchoesTooltipProvider(5,666, -2.4f, 0f, 4, 17, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
+
+    // curios items
+    public static final RegistryObject<Item> BLOOD_PACT = ITEMS.register("blood_pact",
+            BloodPact::new);
     public static void register (IEventBus eventBus){
         ITEMS.register(eventBus);
     }
