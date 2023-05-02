@@ -18,6 +18,10 @@ minecraft {
 
     runs {
         client {
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
@@ -34,6 +38,10 @@ minecraft {
         }
 
         server {
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
@@ -86,10 +94,15 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven { url 'https://maven.blamejared.com' }
+    maven { url 'https://maven.kosmx.dev/' }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.2.8'
+    compileOnly fg.deobf("vazkii.patchouli:Patchouli:[1.19.2-77]:api")
+    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:[1.19.2-77]")
+    implementation fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:0.4.0-test1")
 }
 
 jar {

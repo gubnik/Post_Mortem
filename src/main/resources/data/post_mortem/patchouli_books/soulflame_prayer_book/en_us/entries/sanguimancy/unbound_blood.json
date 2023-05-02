@@ -1,0 +1,11 @@
+{
+  "name": "Unbound Blood",
+  "icon": "post_mortem:unbound_blood",
+  "category": "post_mortem:sanguimancy_category",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Unbound Blood is the most valuable resource to sanguimancer. Being extracted from living beings it carries the very essence of life. It is widely used to conduit the power of life onto inanimate objects"
+    }
+  ]
+}
