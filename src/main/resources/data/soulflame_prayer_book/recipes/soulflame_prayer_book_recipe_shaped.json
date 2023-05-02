@@ -1,0 +1,15 @@
+{
+  "type": "patchouli:shaped_book_recipe",
+  "pattern": [
+    "#$"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:book"
+    },
+    "$": {
+      "item": "post_mortem:spirit_fragment"
+    }
+  },
+  "book": "post_mortem:soulflame_prayer_book"
+}
