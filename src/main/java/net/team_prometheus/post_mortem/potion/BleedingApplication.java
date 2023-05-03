@@ -13,6 +13,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
+import net.team_prometheus.post_mortem.init.PostMortemEffects;
 import net.team_prometheus.post_mortem.init.PostMortemEnchantments;
 import net.team_prometheus.post_mortem.init.PostMortemGamerules;
 import net.team_prometheus.post_mortem.item.ModItems;
@@ -40,19 +41,19 @@ public class BleedingApplication {
         if (!entity.isInvulnerable() && !(entity instanceof LivingEntity _livEnt ? _livEnt.isBlocking() : false) && entity.isAlive()) {
             if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), (immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) * 0.2) {
                 if (entity instanceof LivingEntity _entity)
-                    _entity.addEffect(new MobEffectInstance(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get(), 100,
-                            (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()) ? _livEnt.getEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()).getAmplifier() : 0)
+                    _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+                            (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0)
                                     + (world.getLevelData().getGameRules().getInt(PostMortemGamerules.DEFAULT_BLEEDING_APPLICATION)))));
             }
             if ((immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("forge:bleed_weapons")))) {
                 if (amount >= 3) {
                     if (entity instanceof LivingEntity _entity)
-                        _entity.addEffect(new MobEffectInstance(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get(), 100,
-                                (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()) ? _livEnt.getEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()).getAmplifier() : 0)
+                        _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+                                (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0)
                                         + (world.getLevelData().getGameRules().getInt(PostMortemGamerules.DEFAULT_BLEEDING_APPLICATION)))));
                 }
             }
-            if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()) ? _livEnt.getEffect(net.team_prometheus.post_mortem.init.MobEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
+            if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
                     .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
                 if (immediatesourceentity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ModItems.BLOOD_PACT.get(), lv).isPresent() : false) {
                     if (!(immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) : false)

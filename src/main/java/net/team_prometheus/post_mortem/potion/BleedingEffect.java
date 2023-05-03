@@ -15,7 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.team_prometheus.post_mortem.init.PostMortemGamerules;
-import net.team_prometheus.post_mortem.init.MobEffects;
+import net.team_prometheus.post_mortem.init.PostMortemEffects;
 
 import net.minecraft.world.entity.Entity;
 import net.team_prometheus.post_mortem.init.ParticleTypes;
@@ -28,9 +28,9 @@ public class BleedingEffect {
         && !entity.getType().is(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("forge:bleeding_immune"))) || world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)) {
         if (world instanceof ServerLevel _level)
             _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
-                    (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.BLEEDING.get()) ? _livEnt.getEffect(MobEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 3), (entity.getBbWidth() / 2),
+                    (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 3), (entity.getBbWidth() / 2),
                     (entity.getBbHeight() / 4), (entity.getBbWidth() / 2), 0.01);
-        if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.BLEEDING.get()) ? _livEnt.getEffect(MobEffects.BLEEDING.get()).getAmplifier() : 0) >= (world.getLevelData().getGameRules()
+        if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) >= (world.getLevelData().getGameRules()
                 .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
             if (world instanceof Level _level) {
                 if (!_level.isClientSide()) {
@@ -41,10 +41,10 @@ public class BleedingEffect {
             }
             if (world instanceof ServerLevel _level)
                 _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
-                        (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.BLEEDING.get()) ? _livEnt.getEffect(MobEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 20),
+                        (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 20),
                         (entity.getBbWidth() / 2), (entity.getBbHeight() / 2), (entity.getBbWidth() / 2), 1);
             if (entity instanceof LivingEntity _entity)
-                _entity.removeEffect(MobEffects.BLEEDING.get());
+                _entity.removeEffect(PostMortemEffects.BLEEDING.get());
             if (!(entity instanceof Player)) {
                 k = 1;
             } else {
@@ -60,7 +60,7 @@ public class BleedingEffect {
         }
     } else {
         if (entity instanceof LivingEntity _entity)
-            _entity.removeEffect(MobEffects.BLEEDING.get());
+            _entity.removeEffect(PostMortemEffects.BLEEDING.get());
         }
     }
 }
