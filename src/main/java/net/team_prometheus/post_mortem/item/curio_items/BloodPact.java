@@ -1,4 +1,4 @@
-package net.team_prometheus.post_mortem.item;
+package net.team_prometheus.post_mortem.item.curio_items;
 
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
 

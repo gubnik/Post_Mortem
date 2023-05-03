@@ -1,3 +1,17 @@
 {
-  "item.post_mortem.tombstone_shard": "Tombstone shard"
+  "item.post_mortem.bloodletter": "Bloodletter",
+  "item.post_mortem.spirit_fragment": "Spirit Fragment",
+  "item.post_mortem.tombstone_shard": "Tombstone Shard",
+  "item.post_mortem.unbound_blood": "Unbound Blood",
+
+  "death.attack.bleeding": "%1$s's blood left their body",
+
+  "itemGroup.sanguimancy_tab": "Post Mortem: Sanguimancy",
+  "itemGroup.soulbending_tab": "Post Mortem: Soulbending",
+
+  "desc.press_control": "Press CONTROL to reveal information about Echo",
+
+  "desc.soulflame_ignition.line1": "Soulflame Ignition",
+  "desc.soulflame_ignition.line2": "Reveal a soulflame in a violent eruption coming from your weapon",
+  "desc.soulflame_ignition.line3": "Consumes 8 soul from the Soul Catcher"
 }

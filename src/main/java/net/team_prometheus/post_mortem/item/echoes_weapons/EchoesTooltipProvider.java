@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class EchoesTooltipProvider extends SwordItem {
-    public EchoesTooltipProvider(int dmg, int uses, float speed, float dmgBonus, int level, int enchantment, Ingredient repair) {
+    public EchoesTooltipProvider(int dmg, int uses, float speed, float dmgBonus, int level, int enchantment, Ingredient repair, CreativeModeTab tab) {
         super(new Tier() {
             @Override
             public int getUses() {
@@ -42,7 +42,7 @@ public class EchoesTooltipProvider extends SwordItem {
             public Ingredient getRepairIngredient() {
                 return repair;
             }
-        }, dmg, speed, new Item.Properties().tab(null));
+        }, dmg, speed, new Item.Properties().tab(tab));
     }
 
     @Override

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.team_prometheus.post_mortem.init.MobEffects;
 import net.team_prometheus.post_mortem.init.ParticleTypes;
+import net.team_prometheus.post_mortem.init.PostMortemEnchantments;
 import net.team_prometheus.post_mortem.item.ModItems;
 import org.slf4j.Logger;
 
@@ -25,6 +26,7 @@ public class Post_Mortem
         ModItems.register(modEventBus);
         MobEffects.REGISTRY.register(modEventBus);
         ParticleTypes.REGISTRY.register(modEventBus);
+        PostMortemEnchantments.REGISTRY.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

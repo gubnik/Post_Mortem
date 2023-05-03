@@ -8,6 +8,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.team_prometheus.post_mortem.Post_Mortem;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
+import net.team_prometheus.post_mortem.item.curio_items.BloodPact;
 import net.team_prometheus.post_mortem.item.echoes_weapons.EchoesTooltipProvider;
 
 public class ModItems {
