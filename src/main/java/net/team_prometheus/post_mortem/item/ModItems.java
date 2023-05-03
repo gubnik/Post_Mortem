@@ -25,7 +25,7 @@ public class ModItems {
 
     // weapons, echo variants
     public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
-            () -> new EchoesTooltipProvider(5,666, -2.4f, 0f, 4, 17, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
+            () -> new EchoesTooltipProvider(5, -2.4f, 666, 14, 0f, 4, 17, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
 
     // curios items
     public static final RegistryObject<Item> BLOOD_PACT = ITEMS.register("blood_pact",
