@@ -36,16 +36,12 @@ public class BleedingApplication {
         double time = 0;
         if(immediatesourceentity instanceof LivingEntity _livEnt && entity instanceof LivingEntity _entity)
             if (!entity.isInvulnerable() && !(_entity.isBlocking()) && entity.isAlive()) {
-                if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), _livEnt.getMainHandItem()) * 0.2) {
-                    _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
-                        (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
-            }
             if (_livEnt.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:bleed_weapons")))) {
                 if (amount >= 3) {
                     _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
                             (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
                 }
-            }
+            } // bleed weapons
             if ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
                     .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
                 if (CuriosApi.getCuriosHelper().findFirstCurio(_livEnt, ModItems.BLOOD_PACT.get()).isPresent()) {
@@ -58,7 +54,7 @@ public class BleedingApplication {
                         _livEnt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, (int) (time + 200), (int) lvl, (false), (true)));
                     }
                 }
-            }
+            } // blood pact
         }
     }
 }
