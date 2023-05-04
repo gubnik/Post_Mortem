@@ -2,7 +2,6 @@
   "replace": "false",
   "values": [
     "minecraft:air",
-    "post_mortem:eye_of_sanguinius",
     "post_mortem:soul_catcher"
   ]
 }
