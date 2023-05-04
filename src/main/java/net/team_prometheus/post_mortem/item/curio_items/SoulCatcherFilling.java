@@ -31,7 +31,7 @@ public class SoulCatcherFilling {
             if(cause.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:ghosts_binders"))) &&
             CuriosApi.getCuriosHelper().findFirstCurio(cause, ModItems.SOUL_CATCHER.get()).isPresent() &&
             target.getType().is(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("forge:ghosts")))) {
-                ItemStack item = (ItemStack) CuriosApi.getCuriosHelper().findFirstCurio(cause, ModItems.SOUL_CATCHER.get()).get().stack();
+                ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(cause, ModItems.SOUL_CATCHER.get()).get().stack();
                 if ((item).getDamageValue() - 16 > 1) {
                     (item).setDamageValue((int) ((item).getDamageValue() - 16));
                 } else if ((item).getDamageValue() - 16 <= 1) {
