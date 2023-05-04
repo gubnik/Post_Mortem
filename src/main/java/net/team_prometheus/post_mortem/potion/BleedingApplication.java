@@ -34,11 +34,10 @@ public class BleedingApplication {
             return;
         double lvl = 0;
         double time = 0;
-        LivingEntity _livEnt = (LivingEntity) immediatesourceentity;
-        LivingEntity _entity = (LivingEntity) entity;
-        if (!entity.isInvulnerable() && !(_entity.isBlocking()) && entity.isAlive()) {
-            if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), _livEnt.getMainHandItem()) * 0.2) {
-                _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+        if(immediatesourceentity instanceof LivingEntity _livEnt && entity instanceof LivingEntity _entity)
+            if (!entity.isInvulnerable() && !(_entity.isBlocking()) && entity.isAlive()) {
+                if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), _livEnt.getMainHandItem()) * 0.2) {
+                    _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
                         (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
             }
             if (_livEnt.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:bleed_weapons")))) {

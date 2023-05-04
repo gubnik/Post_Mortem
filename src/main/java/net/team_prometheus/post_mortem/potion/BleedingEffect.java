@@ -20,15 +20,15 @@ import net.team_prometheus.post_mortem.init.PostMortemEffects;
 import net.minecraft.world.entity.Entity;
 import net.team_prometheus.post_mortem.init.ParticleTypes;
 
+import java.util.List;
 import java.util.Objects;
 
 
 public class BleedingEffect {
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
     double k = 0;
-    LivingEntity _entity = (LivingEntity) entity;
-    ServerLevel _level = (ServerLevel) world;
-    if (!(_entity.getMobType() == MobType.UNDEAD) && !world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)
+    if(world instanceof ServerLevel _level && entity instanceof LivingEntity _entity)
+        if (!(_entity.getMobType() == MobType.UNDEAD) && !world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)
         && !entity.getType().is(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("forge:bleeding_immune"))) || world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)) {
         _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
                     (int) (((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 3), (entity.getBbWidth() / 2),
