@@ -29,48 +29,37 @@ public class BleedingApplication {
         }
     }
 
-    public static void execute(LevelAccessor world, Entity entity, Entity immediatesourceentity, double amount) {
-        execute(null, world, entity, immediatesourceentity, amount);
-    }
-
-    private static void execute(@Nullable Event event, LevelAccessor world, Entity entity, Entity immediatesourceentity, double amount) {
+    public static void execute(@Nullable Event event, LevelAccessor world, Entity entity, Entity immediatesourceentity, double amount) {
         if (entity == null || immediatesourceentity == null)
             return;
         double lvl = 0;
         double time = 0;
-        if (!entity.isInvulnerable() && !(entity instanceof LivingEntity _livEnt ? _livEnt.isBlocking() : false) && entity.isAlive()) {
-            if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), (immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY)) * 0.2) {
-                if (entity instanceof LivingEntity _entity)
-                    _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
-                            (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0)
-                                    + (world.getLevelData().getGameRules().getInt(PostMortemGamerules.DEFAULT_BLEEDING_APPLICATION)))));
+        LivingEntity _livEnt = (LivingEntity) immediatesourceentity;
+        LivingEntity _entity = (LivingEntity) entity;
+        if (!entity.isInvulnerable() && !(_entity.isBlocking()) && entity.isAlive()) {
+            if (Math.random() < EnchantmentHelper.getItemEnchantmentLevel(PostMortemEnchantments.RUPTURE.get(), _livEnt.getMainHandItem()) * 0.2) {
+                _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+                        (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
             }
-            if ((immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).is(ItemTags.create(new ResourceLocation("forge:bleed_weapons")))) {
+            if (_livEnt.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:bleed_weapons")))) {
                 if (amount >= 3) {
-                    if (entity instanceof LivingEntity _entity)
-                        _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
-                                (int) ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0)
-                                        + (world.getLevelData().getGameRules().getInt(PostMortemGamerules.DEFAULT_BLEEDING_APPLICATION)))));
+                    _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+                            (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
                 }
             }
-            if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
+            if ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
                     .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
-                if (immediatesourceentity instanceof LivingEntity lv ? CuriosApi.getCuriosHelper().findEquippedCurio(ModItems.BLOOD_PACT.get(), lv).isPresent() : false) {
-                    if (!(immediatesourceentity instanceof LivingEntity _livEnt ? _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) : false)
-                            || (immediatesourceentity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() : 0) <= 1) {
-                        if (immediatesourceentity instanceof LivingEntity _entity)
-                            _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, (false), (true)));
+                if (CuriosApi.getCuriosHelper().findFirstCurio(_livEnt, ModItems.BLOOD_PACT.get()).isPresent()) {
+                    if (!_livEnt.hasEffect(MobEffects.DAMAGE_BOOST) || (_livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() : 0) <= 1) {
+                        _livEnt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, (false), (true)));
                     } else {
-                        lvl = immediatesourceentity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() : 0;
-                        time = immediatesourceentity instanceof LivingEntity _livEnt && _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getDuration() : 0;
-                        if (immediatesourceentity instanceof LivingEntity _entity)
-                            _entity.removeEffect(MobEffects.DAMAGE_BOOST);
-                        if (immediatesourceentity instanceof LivingEntity _entity)
-                            _entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, (int) (time + 200), (int) lvl, (false), (true)));
+                        lvl = _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() : 0;
+                        time = _livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getDuration() : 0;
+                        _livEnt.removeEffect(MobEffects.DAMAGE_BOOST);
+                        _livEnt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, (int) (time + 200), (int) lvl, (false), (true)));
                     }
                 }
             }
         }
     }
 }
-

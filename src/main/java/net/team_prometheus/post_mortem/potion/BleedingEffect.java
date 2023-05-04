@@ -20,47 +20,43 @@ import net.team_prometheus.post_mortem.init.PostMortemEffects;
 import net.minecraft.world.entity.Entity;
 import net.team_prometheus.post_mortem.init.ParticleTypes;
 
+import java.util.Objects;
+
 
 public class BleedingEffect {
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
     double k = 0;
-    if (!(entity instanceof LivingEntity _livEnt && _livEnt.getMobType() == MobType.UNDEAD) && !world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)
+    LivingEntity _entity = (LivingEntity) entity;
+    ServerLevel _level = (ServerLevel) world;
+    if (!(_entity.getMobType() == MobType.UNDEAD) && !world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)
         && !entity.getType().is(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("forge:bleeding_immune"))) || world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)) {
-        if (world instanceof ServerLevel _level)
-            _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
-                    (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 3), (entity.getBbWidth() / 2),
+        _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
+                    (int) (((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 3), (entity.getBbWidth() / 2),
                     (entity.getBbHeight() / 4), (entity.getBbWidth() / 2), 0.01);
-        if ((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) >= (world.getLevelData().getGameRules()
+        if ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) >= (world.getLevelData().getGameRules()
                 .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
-            if (world instanceof Level _level) {
-                if (!_level.isClientSide()) {
-                    _level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("post_mortem:bleeding_sound")), SoundSource.PLAYERS, 1, 1);
-                } else {
-                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("post_mortem:bleeding_sound")), SoundSource.PLAYERS, 1, 1, false);
-                }
+            if (!_level.isClientSide()) {
+                _level.playSound(null, new BlockPos(x, y, z), Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("post_mortem:bleeding_sound"))), SoundSource.PLAYERS, 1, 1);
+            } else {
+                _level.playLocalSound(x, y, z, Objects.requireNonNull(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("post_mortem:bleeding_sound"))), SoundSource.PLAYERS, 1, 1, false);
             }
-            if (world instanceof ServerLevel _level)
-                _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
-                        (int) (((entity instanceof LivingEntity _livEnt && _livEnt.hasEffect(PostMortemEffects.BLEEDING.get()) ? _livEnt.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 20),
-                        (entity.getBbWidth() / 2), (entity.getBbHeight() / 2), (entity.getBbWidth() / 2), 1);
-            if (entity instanceof LivingEntity _entity)
-                _entity.removeEffect(PostMortemEffects.BLEEDING.get());
+            _level.sendParticles((SimpleParticleType) (ParticleTypes.DROP_OF_BLOOD.get()), x, (y + entity.getBbHeight() / 2), z,
+                    (int) (((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 20),
+                    (entity.getBbWidth() / 2), (entity.getBbHeight() / 2), (entity.getBbWidth() / 2), 1);
+            _entity.removeEffect(PostMortemEffects.BLEEDING.get());
             if (!(entity instanceof Player)) {
                 k = 1;
             } else {
                 k = 2;
             }
-            if ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k > 1) {
-                if (entity instanceof LivingEntity _entity)
-                    _entity.setHealth((float) ((entity instanceof LivingEntity _livEnt ? _livEnt.getHealth() : -1) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k));
+            if ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k > 1) {
+                _entity.setHealth((float) ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k));
             } else {
-                if (entity instanceof LivingEntity _entity)
-                    _entity.hurt(new DamageSource("bleeding").bypassArmor().bypassEnchantments().bypassInvul(), 80);
+                _entity.hurt(new DamageSource("bleeding").bypassArmor().bypassEnchantments().bypassInvul(), 80);
             }
         }
     } else {
-        if (entity instanceof LivingEntity _entity)
-            _entity.removeEffect(PostMortemEffects.BLEEDING.get());
+        _entity.removeEffect(PostMortemEffects.BLEEDING.get());
         }
     }
 }
