@@ -1,16 +1,26 @@
 {
+  "item.post_mortem.blood_pact": "Blood Pact",
   "item.post_mortem.bloodletter": "Bloodletter",
+  "item.post_mortem.bloodstained_ingot": "Bloodstained Ingot",
+  "item.post_mortem.soulfilled_ingot": "Soulfilled Ingot",
+  "item.post_mortem.soulflame_spear": "Soulflame Spear",
   "item.post_mortem.spirit_fragment": "Spirit Fragment",
   "item.post_mortem.tombstone_shard": "Tombstone Shard",
   "item.post_mortem.unbound_blood": "Unbound Blood",
 
   "death.attack.bleeding": "%1$s's blood left their body",
+  "death.attack.soulflame": "%1$s's soul was melted into world's essence",
 
   "itemGroup.sanguimancy_tab": "Post Mortem: Sanguimancy",
   "itemGroup.soulbending_tab": "Post Mortem: Soulbending",
 
-  "desc.press_control": "Press CONTROL to reveal information about Echo",
+  "enchantment.post_mortem.rupture": "Rupture",
+  "enchantment.post_mortem.rupture.desc": "Each level grants a 20% chance to apply Bleeding on attack",
+  "enchantment.post_mortem.exorcism": "Exorcism",
+  "enchantment.post_mortem.exorcism.desc": "Each level grants a damage bonus against ghosts",
 
+  "desc.press_control": "Press CONTROL to reveal information about Echo",
+  "desc.no_skill": "No Echo attached",
   "desc.soulflame_ignition.line1": "Soulflame Ignition",
   "desc.soulflame_ignition.line2": "Reveal a soulflame in a violent eruption coming from your weapon",
   "desc.soulflame_ignition.line3": "Consumes 8 soul from the Soul Catcher"
