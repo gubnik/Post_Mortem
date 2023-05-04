@@ -19,13 +19,4 @@ public class BloodPact extends Item implements ICurioItem {
     public BloodPact() {
         super(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).stacksTo(1).rarity(Rarity.EPIC));
     }
-    @Override
-    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
-        if(Screen.hasShiftDown()) {
-            list.add(Component.translatable("desc.blood_pact.line1"));
-        } else {
-            list.add(Component.translatable("desc.press_shift").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
-        }
-        super.appendHoverText(itemstack, world, list, flag);
-    }
 }

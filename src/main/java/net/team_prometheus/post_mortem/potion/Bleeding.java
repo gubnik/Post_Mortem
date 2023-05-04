@@ -9,6 +9,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.client.gui.screens.inventory.EffectRenderingInventoryScreen;
+import org.jetbrains.annotations.NotNull;
 
 
 public class Bleeding extends MobEffect {
@@ -22,7 +23,7 @@ public class Bleeding extends MobEffect {
     }
 
     @Override
-    public void applyEffectTick(LivingEntity entity, int amplifier) {
+    public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
         BleedingEffect.execute(entity.level, entity.getX(), entity.getY(), entity.getZ(), entity);
     }
 
