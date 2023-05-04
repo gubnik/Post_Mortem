@@ -6,19 +6,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.team_prometheus.post_mortem.init.*;
-
 import net.minecraft.world.entity.Entity;
-
 import java.util.Objects;
-
-
 public class BleedingEffect {
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
     float k;
@@ -39,16 +34,8 @@ public class BleedingEffect {
                     (((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1) * 20),
                     (entity.getBbWidth() / 2), (entity.getBbHeight() / 2), (entity.getBbWidth() / 2), 1);
             _entity.removeEffect(PostMortemEffects.BLEEDING.get());
-            if (!(entity instanceof Player)) {
-                k = 1;
-            } else {
-                k = 2;
-            }
-            if ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k > 1) {
-                _entity.setHealth((float) ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k));
-            } else {
-                _entity.hurt(PostMortemDamageSource.BLEED, 80);
-            }
+            k = 1 + ((entity instanceof Player) ? 1: 0);
+            _entity.hurt(PostMortemDamageSource.BLEED, (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k);
         }
     } else {
         _entity.removeEffect(PostMortemEffects.BLEEDING.get());
