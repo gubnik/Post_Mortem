@@ -1,4 +1,4 @@
-package net.team_prometheus.post_mortem.item.echoes_weapons;
+package net.team_prometheus.post_mortem.echoes_weapons;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -6,6 +6,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Objects;
@@ -39,7 +40,7 @@ public class EchoesTooltipProvider extends SwordItem {
             }
 
             @Override
-            public Ingredient getRepairIngredient() {
+            public @NotNull Ingredient getRepairIngredient() {
                 return repair;
             }
         }, dmg, atkSpeed, new Item.Properties().tab(tab));

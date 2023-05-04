@@ -11,7 +11,7 @@ import net.team_prometheus.post_mortem.init.PostMortemRarity;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
 import net.team_prometheus.post_mortem.item.curio_items.BloodPact;
 import net.team_prometheus.post_mortem.item.curio_items.SoulCatcher;
-import net.team_prometheus.post_mortem.item.echoes_weapons.EchoesTooltipProvider;
+import net.team_prometheus.post_mortem.echoes_weapons.EchoesTooltipProvider;
 
 public class ModItems {
 

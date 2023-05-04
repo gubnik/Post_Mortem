@@ -1,4 +1,4 @@
-package net.team_prometheus.post_mortem.item.echoes_weapons;
+package net.team_prometheus.post_mortem.echoes_weapons;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
