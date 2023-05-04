@@ -39,7 +39,7 @@ public class PostMortemEnchantments {
         public float getDamageBonus(int level, MobType mobType, ItemStack enchantedItem){
             if(mobType == PostMortemMobTypes.GHOST) {
                 return level * 2f;
-            } else return 0f;
+            } else return 0f; // exorcism
         }
     });
 }
