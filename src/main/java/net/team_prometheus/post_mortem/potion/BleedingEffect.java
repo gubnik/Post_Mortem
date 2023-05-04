@@ -12,19 +12,16 @@ import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.team_prometheus.post_mortem.init.PostMortemGamerules;
-import net.team_prometheus.post_mortem.init.PostMortemEffects;
+import net.team_prometheus.post_mortem.init.*;
 
 import net.minecraft.world.entity.Entity;
-import net.team_prometheus.post_mortem.init.ParticleTypes;
-import net.team_prometheus.post_mortem.init.PostMortemMobTypes;
 
 import java.util.Objects;
 
 
 public class BleedingEffect {
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
-    double k;
+    float k;
     if(world instanceof ServerLevel _level && entity instanceof LivingEntity _entity)
         if (!(_entity.getMobType() == MobType.UNDEAD) &&  !(_entity.getMobType() == PostMortemMobTypes.GHOST) && !world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)
         && !entity.getType().is(TagKey.create(Registry.ENTITY_TYPE_REGISTRY, new ResourceLocation("forge:bleeding_immune"))) || world.getLevelData().getGameRules().getBoolean(PostMortemGamerules.UNIVERSAL_BLEEDING)) {
@@ -50,7 +47,7 @@ public class BleedingEffect {
             if ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k > 1) {
                 _entity.setHealth((float) ((_entity.getHealth()) - (world.getLevelData().getGameRules().getInt(PostMortemGamerules.BLEEDING_DAMAGE)) / k));
             } else {
-                _entity.hurt(new DamageSource("bleeding").bypassArmor().bypassEnchantments().bypassInvul(), 80);
+                _entity.hurt(PostMortemDamageSource.BLEED, 80);
             }
         }
     } else {
