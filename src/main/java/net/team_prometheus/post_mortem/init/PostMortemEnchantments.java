@@ -12,6 +12,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.team_prometheus.post_mortem.Post_Mortem;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class PostMortemEnchantments {
     public static final DeferredRegister<Enchantment> REGISTRY = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, Post_Mortem.MOD_ID);
@@ -20,11 +23,11 @@ public class PostMortemEnchantments {
             return 5;
         }
         @Override
-        public void doPostAttack(LivingEntity attacker, Entity target, int level) {
+        public void doPostAttack(@NotNull LivingEntity attacker, @NotNull Entity target, int level) {
             if(target instanceof LivingEntity _entity)
                 if (Math.random() < level * 0.2) {
                     _entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
-                            (int) ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) + 1)));
+                            ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? Objects.requireNonNull(_entity.getEffect(PostMortemEffects.BLEEDING.get())).getAmplifier() : 0) + 1)));
             } // rupture
         }
     });
@@ -35,7 +38,7 @@ public class PostMortemEnchantments {
         @Override
         public float getDamageBonus(int level, MobType mobType, ItemStack enchantedItem){
             if(mobType == PostMortemMobTypes.GHOST) {
-                return (float) (level * 0.4);
+                return level * 2f;
             } else return 0f;
         }
     });
