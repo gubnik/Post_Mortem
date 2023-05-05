@@ -24,16 +24,14 @@ public class SoulflameIgnitionTrigger {
     public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack used_item) {
         if (entity == null)
             return;
-        if (entity instanceof LivingEntity user)
-            if(CuriosApi.getCuriosHelper().findFirstCurio(user, ModItems.SOUL_CATCHER.get()).isPresent()) {
-                ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(user, ModItems.SOUL_CATCHER.get()).get().stack();
+        if (entity instanceof Player player)
+            if(CuriosApi.getCuriosHelper().findFirstCurio(player, ModItems.SOUL_CATCHER.get()).isPresent()) {
+                ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(player, ModItems.SOUL_CATCHER.get()).get().stack();
                 if ((item).getDamageValue() <= ((item).getMaxDamage() - 8) - 1) {
-                    if (entity instanceof Player player) {
-                        player.getCooldowns().addCooldown(used_item.getItem(), 100);
-                        var animation = SetupAnimations.animationData.get(player);
-                        if (animation != null) {
-                            animation.setAnimation(new KeyframeAnimationPlayer(Objects.requireNonNull(PlayerAnimationRegistry.getAnimation(new ResourceLocation("post_mortem", "soulflame_ignition")))));
-                        }
+                    player.getCooldowns().addCooldown(used_item.getItem(), 100);
+                    var animation = SetupAnimations.animationData.get(player);
+                    if (animation != null) {
+                        animation.setAnimation(new KeyframeAnimationPlayer(Objects.requireNonNull(PlayerAnimationRegistry.getAnimation(new ResourceLocation("post_mortem", "soulflame_ignition")))));
                     }
                     AnimUtils.disableFirstPersonAnim = false; {
                         if (item.hurt(8, RandomSource.create(), null)) {
@@ -41,9 +39,7 @@ public class SoulflameIgnitionTrigger {
                             item.setDamageValue(0);
                         }
                     }
-                    Post_Mortem.queueServerWork(5, () -> {
-                        SoulflameIgnition.execute(world, x, (y + 1.3), z, entity);
-                    });
+                    Post_Mortem.queueServerWork(5, () -> SoulflameIgnition.execute(world, x, (y + 1.3), z, entity));
                 }
             }
         }

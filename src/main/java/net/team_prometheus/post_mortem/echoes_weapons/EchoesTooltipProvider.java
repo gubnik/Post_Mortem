@@ -7,7 +7,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -47,7 +46,7 @@ public class EchoesTooltipProvider extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack itemstack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
         if (Screen.hasControlDown()) {
             if (Objects.equals(EchoesTooltip.getDescription(itemstack, list), "desc.no_skill")) {
