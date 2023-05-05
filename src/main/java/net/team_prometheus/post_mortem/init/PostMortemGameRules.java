@@ -4,7 +4,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraft.world.level.GameRules;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-public class PostMortemGamerules {
+public class PostMortemGameRules {
     public static final GameRules.Key<GameRules.BooleanValue> UNIVERSAL_BLEEDING = GameRules.register("universalBleeding", GameRules.Category.PLAYER, GameRules.BooleanValue.create(true));
     public static final GameRules.Key<GameRules.IntegerValue> BLEEDING_ACTIVATION = GameRules.register("bleedingActivation", GameRules.Category.PLAYER, GameRules.IntegerValue.create(4));
     public static final GameRules.Key<GameRules.IntegerValue> BLEEDING_DAMAGE = GameRules.register("bleedingDamage", GameRules.Category.PLAYER, GameRules.IntegerValue.create(10));

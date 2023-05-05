@@ -11,7 +11,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.resources.ResourceLocation;
 import net.team_prometheus.post_mortem.init.PostMortemEffects;
-import net.team_prometheus.post_mortem.init.PostMortemGamerules;
+import net.team_prometheus.post_mortem.init.PostMortemGameRules;
 import net.team_prometheus.post_mortem.item.ModItems;
 import top.theillusivec4.curios.api.CuriosApi;
 
@@ -39,7 +39,7 @@ public class BleedingApplication {
                 }
             }
             if ((_entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? _entity.getEffect(PostMortemEffects.BLEEDING.get()).getAmplifier() : 0) == (world.getLevelData().getGameRules()
-                    .getInt(PostMortemGamerules.BLEEDING_ACTIVATION))) {
+                    .getInt(PostMortemGameRules.BLEEDING_ACTIVATION))) {
                 if (CuriosApi.getCuriosHelper().findFirstCurio(_livEnt, ModItems.BLOOD_PACT.get()).isPresent()) {
                     if (!_livEnt.hasEffect(MobEffects.DAMAGE_BOOST) || (_livEnt.hasEffect(MobEffects.DAMAGE_BOOST) ? _livEnt.getEffect(MobEffects.DAMAGE_BOOST).getAmplifier() : 0) <= 1) {
                         _livEnt.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, (false), (true)));
