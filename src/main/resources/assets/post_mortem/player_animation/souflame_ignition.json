@@ -38,40 +38,6 @@
 						}
 					}
 				},
-				"head": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [0, 0, 0],
-							"easing": "easeOutExpo"
-						},
-						"0.5": {
-							"vector": [0, 0, 0],
-							"easing": "easeOutBack"
-						}
-					},
-					"position": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [0, 0, -4],
-							"easing": "easeOutExpo"
-						},
-						"0.5": {
-							"vector": [0, 0, 0],
-							"easing": "easeOutBack"
-						}
-					}
-				},
 				"right_arm": {
 					"rotation": {
 						"0.0": {
@@ -110,70 +76,6 @@
 							"easing": "easeOutCirc"
 						},
 						"0.5": {
-							"vector": [0, 0, 0]
-						}
-					}
-				},
-				"right_leg": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [17.5, 0, 0],
-							"easing": "easeOutExpo"
-						},
-						"0.625": {
-							"vector": [0, 0, 0]
-						}
-					},
-					"position": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [0, 0, 1],
-							"easing": "easeOutExpo"
-						},
-						"0.625": {
-							"vector": [0, 0, 0]
-						}
-					}
-				},
-				"left_leg": {
-					"rotation": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [0, 0, 0],
-							"easing": "easeOutExpo"
-						},
-						"0.625": {
-							"vector": [0, 0, 0]
-						}
-					},
-					"position": {
-						"0.0": {
-							"vector": [0, 0, 0]
-						},
-						"0.1667": {
-							"vector": [0, 0, 0]
-						},
-						"0.375": {
-							"vector": [0, 0, -2],
-							"easing": "easeOutExpo"
-						},
-						"0.625": {
 							"vector": [0, 0, 0]
 						}
 					}
