@@ -1,0 +1,11 @@
+{
+  "name": "Spirit Fragment",
+  "icon": "post_mortem:spirit_fragment",
+  "category": "post_mortem:soulbending_category",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Spirit Fragments are chips of dead's soul. They still contain fragments of will and can be turned into vile soulflame."
+    }
+  ]
+}
