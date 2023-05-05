@@ -42,7 +42,7 @@ public class Post_Mortem
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    // I shall look on this later
+    // I shall have a look on this later
     private void commonSetup(final FMLCommonSetupEvent event) {
     }
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();

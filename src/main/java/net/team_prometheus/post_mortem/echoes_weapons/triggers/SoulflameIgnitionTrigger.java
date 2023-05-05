@@ -1,5 +1,6 @@
 package net.team_prometheus.post_mortem.echoes_weapons.triggers;
 
+import net.minecraft.world.item.Item;
 import net.team_prometheus.post_mortem.echoes_weapons.attacks.SoulflameIgnition;
 import net.team_prometheus.post_mortem.init.SetupAnimations;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -20,21 +21,21 @@ import dev.kosmx.playerAnim.api.AnimUtils;
 import java.util.Objects;
 
 public class SoulflameIgnitionTrigger {
-    public static void execute(LevelAccessor world, double x, double y, double z, Entity entity) {
+    public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack used_item) {
         if (entity == null)
             return;
-        if (entity instanceof LivingEntity lv)
-            if(CuriosApi.getCuriosHelper().findFirstCurio(lv, ModItems.SOUL_CATCHER.get()).isPresent()) {
-                ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(lv, ModItems.SOUL_CATCHER.get()).get().stack();
+        if (entity instanceof LivingEntity user)
+            if(CuriosApi.getCuriosHelper().findFirstCurio(user, ModItems.SOUL_CATCHER.get()).isPresent()) {
+                ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(user, ModItems.SOUL_CATCHER.get()).get().stack();
                 if ((item).getDamageValue() <= ((item).getMaxDamage() - 8) - 1) {
-                    if (entity instanceof Player) {
-                        var animation = SetupAnimations.animationData.get((Player) entity);
+                    if (entity instanceof Player player) {
+                        player.getCooldowns().addCooldown(used_item.getItem(), 100);
+                        var animation = SetupAnimations.animationData.get(player);
                         if (animation != null) {
                             animation.setAnimation(new KeyframeAnimationPlayer(Objects.requireNonNull(PlayerAnimationRegistry.getAnimation(new ResourceLocation("post_mortem", "soulflame_ignition")))));
                         }
                     }
-                    AnimUtils.disableFirstPersonAnim = false;
-                    {
+                    AnimUtils.disableFirstPersonAnim = false; {
                         if (item.hurt(8, RandomSource.create(), null)) {
                             item.shrink(1);
                             item.setDamageValue(0);

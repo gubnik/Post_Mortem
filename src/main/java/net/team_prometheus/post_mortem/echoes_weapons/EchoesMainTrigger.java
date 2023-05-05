@@ -1,9 +1,7 @@
 package net.team_prometheus.post_mortem.echoes_weapons;
 
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -24,9 +22,9 @@ public class EchoesMainTrigger {
         if(entity instanceof LivingEntity user && item.is(ItemTags.create(new ResourceLocation("forge:sanguine_echoes_empty_weapons"))))
             switch((int) item.getOrCreateTag().getDouble("skill")){
                 case(0):
-                    item.getOrCreateTag().putDouble("skill", 1);
+                    item.getOrCreateTag().putDouble("skill", 1); // this will be deleted when I'm done with testing
                 case(1):
-                    SoulflameIgnitionTrigger.execute(world, x, y, z, entity);
+                    SoulflameIgnitionTrigger.execute(world, x, y, z, user, item);
                     break;
                 case(2):
                     break;
