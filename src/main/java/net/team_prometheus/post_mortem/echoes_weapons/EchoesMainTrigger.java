@@ -9,6 +9,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.team_prometheus.post_mortem.echoes_weapons.triggers.BloodySlashTrigger;
 import net.team_prometheus.post_mortem.echoes_weapons.triggers.SoulflameIgnitionTrigger;
 
 @Mod.EventBusSubscriber
@@ -27,6 +28,7 @@ public class EchoesMainTrigger {
                     SoulflameIgnitionTrigger.execute(world, x, y, z, user, item);
                     break;
                 case(2):
+                    BloodySlashTrigger.execute(world, x, y, z, user, item);
                     break;
             }
     }

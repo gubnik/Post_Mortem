@@ -10,4 +10,3 @@ public class PostMortemGameRules {
     public static final GameRules.Key<GameRules.IntegerValue> BLEEDING_DAMAGE = GameRules.register("bleedingDamage", GameRules.Category.PLAYER, GameRules.IntegerValue.create(10));
     public static final GameRules.Key<GameRules.BooleanValue> GHOSTS_SPAWN_AFTER_DEATH = GameRules.register("ghostsSpawnAfterDeath", GameRules.Category.SPAWNING, GameRules.BooleanValue.create(true));
 }
-
