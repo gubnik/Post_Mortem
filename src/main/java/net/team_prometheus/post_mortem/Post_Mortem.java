@@ -1,6 +1,7 @@
 package net.team_prometheus.post_mortem;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
@@ -10,13 +11,12 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.team_prometheus.post_mortem.init.PostMortemEffects;
-import net.team_prometheus.post_mortem.init.ParticleTypes;
-import net.team_prometheus.post_mortem.init.PostMortemEnchantments;
-import net.team_prometheus.post_mortem.init.PostMortemSounds;
+import net.team_prometheus.post_mortem.init.*;
 import net.team_prometheus.post_mortem.item.ModItems;
+import net.team_prometheus.post_mortem.models.AngrySpiritModel;
+import net.team_prometheus.post_mortem.renderer.AngrySpiritRenderer;
 import org.slf4j.Logger;
-
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -36,9 +36,10 @@ public class Post_Mortem
         ParticleTypes.REGISTRY.register(modEventBus);
         PostMortemEnchantments.REGISTRY.register(modEventBus);
         PostMortemSounds.REGISTRY.register(modEventBus);
-
+        ModEntities.REGISTRY.register(modEventBus);
+        modEventBus.addListener(this::setupClient);
+        modEventBus.addListener(this::registerLayerDefinitions);
         modEventBus.addListener(this::commonSetup);
-
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -63,6 +64,12 @@ public class Post_Mortem
         }
     }
     //
+    private void setupClient(final FMLCommonSetupEvent event) {
+        EntityRenderers.register(ModEntities.ANGRY_SPIRIT.get(), AngrySpiritRenderer::new);
+    }
+    private void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(AngrySpiritModel.LAYER_LOCATION, AngrySpiritModel::createBodyLayer);
+    }
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
