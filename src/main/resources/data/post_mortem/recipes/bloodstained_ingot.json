@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23"
+  ],
+  "key": {
+    "0": {
+      "item": "post_mortem:unbound_blood"
+    },
+    "1": {
+      "item": "post_mortem:unbound_blood"
+    },
+    "2": {
+      "item": "post_mortem:soulfilled_ingot"
+    },
+    "3": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "result": {
+    "item": "post_mortem:bloodstained_ingot",
+    "count": 1
+  }
+}

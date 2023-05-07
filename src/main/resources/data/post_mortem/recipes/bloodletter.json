@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  2",
+    "34 ",
+    "67 "
+  ],
+  "key": {
+    "2": {
+      "item": "post_mortem:bloodstained_ingot"
+    },
+    "3": {
+      "item": "post_mortem:tombstone_shard"
+    },
+    "4": {
+      "item": "post_mortem:bloodstained_ingot"
+    },
+    "6": {
+      "item": "post_mortem:haunted_splinter"
+    },
+    "7": {
+      "item": "post_mortem:tombstone_shard"
+    }
+  },
+  "result": {
+    "item": "post_mortem:bloodletter",
+    "count": 1
+  }
+}

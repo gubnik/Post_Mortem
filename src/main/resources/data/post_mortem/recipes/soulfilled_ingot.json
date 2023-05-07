@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "2 "
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:iron_ingot"
+    },
+    "1": {
+      "item": "post_mortem:spirit_fragment"
+    },
+    "2": {
+      "item": "post_mortem:spiritbell"
+    }
+  },
+  "result": {
+    "item": "post_mortem:soulfilled_ingot",
+    "count": 1
+  }
+}
