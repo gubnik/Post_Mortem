@@ -2,11 +2,13 @@ package net.team_prometheus.post_mortem.item;
 
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.team_prometheus.post_mortem.Post_Mortem;
+import net.team_prometheus.post_mortem.init.ModEntities;
 import net.team_prometheus.post_mortem.init.PostMortemRarity;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
 import net.team_prometheus.post_mortem.item.curio_items.BloodPact;
@@ -33,9 +35,11 @@ public class ModItems {
 
     // weapons, echo variants
     public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
-            () -> new EchoesTooltipProvider(5, -2.4f, 1666, 14, 0f, 4, 14, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
+            () -> new EchoesTooltipProvider(5, -2.4f, 1666, 14, 0f, 3, 14, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
     public static final RegistryObject<Item> SOULFLAME_SPEAR = ITEMS.register("soulflame_spear",
-            () -> new EchoesTooltipProvider(6, -2.6f, 1777, 14, 0f, 4, 17, Ingredient.of(ModItems.SPIRIT_FRAGMENT.get()), PostMortemTabs.SOULBENDING_TAB));
+            () -> new EchoesTooltipProvider(6, -2.6f, 1777, 14, 0f, 3, 17, Ingredient.of(ModItems.SPIRIT_FRAGMENT.get()), PostMortemTabs.SOULBENDING_TAB));
+    public static final RegistryObject<Item> BINDING_BLADE = ITEMS.register("binding_blade",
+            () -> new EchoesTooltipProvider(4, -2.4f, 666, 14, 0f, 2, 12, Ingredient.of(ModItems.TOMBSTONE_SHARD.get()), PostMortemTabs.SOULBENDING_TAB));
 
     // curios items
     public static final RegistryObject<Item> BLOOD_PACT = ITEMS.register("blood_pact",
@@ -43,6 +47,9 @@ public class ModItems {
     public static final RegistryObject<Item> SOUL_CATCHER = ITEMS.register("soul_catcher",
             SoulCatcher::new);
 
+    // spawn eggs
+    public static final RegistryObject<Item> ANGRY_SPIRIT_SPAWN_EGG = ITEMS.register("angry_spirit_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ANGRY_SPIRIT, -7233363, -3374717, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
     public static void register (IEventBus eventBus){
         ITEMS.register(eventBus);
     }

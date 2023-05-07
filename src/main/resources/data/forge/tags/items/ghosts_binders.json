@@ -1,6 +1,7 @@
 {
   "replace": "false",
   "values": [
-    "post_mortem:soulflame_spear"
+    "post_mortem:soulflame_spear",
+    "post_mortem:binding_blade"
   ]
 }
