@@ -1,7 +1,9 @@
 {
+  "item.post_mortem.binding_blade": "Binding Blade",
   "item.post_mortem.blood_pact": "Blood Pact",
   "item.post_mortem.bloodletter": "Bloodletter",
   "item.post_mortem.bloodstained_ingot": "Bloodstained Ingot",
+  "item.post_mortem.soul_catcher": "Soul Catcher",
   "item.post_mortem.soulfilled_ingot": "Soulfilled Ingot",
   "item.post_mortem.soulflame_spear": "Soulflame Spear",
   "item.post_mortem.spirit_fragment": "Spirit Fragment",
@@ -23,5 +25,11 @@
   "desc.no_skill": "No Echo attached",
   "desc.soulflame_ignition.line1": "Soulflame Ignition",
   "desc.soulflame_ignition.line2": "Reveal a soulflame in a violent eruption coming from your weapon",
-  "desc.soulflame_ignition.line3": "Consumes 8 soul from the Soul Catcher"
+  "desc.soulflame_ignition.line3": "Consumes 8 soul from the Soul Catcher",
+  "desc.bloody_slash.line1": "Bloody Slash",
+  "desc.bloody_slash.line2": "Wound yourself to imbue you weapon with your blood and perform a slash",
+  "desc.bloody_slash.line3": "Consumes 2 health points",
+  "desc.ghostly_form.line1": "Ghostly Form",
+  "desc.ghostly_form.line2": "Burn your body in a soulflame in a powerful dash",
+  "desc.ghostly_form.line3": "Consumes 8 soul from the Soul Catcher"
 }
