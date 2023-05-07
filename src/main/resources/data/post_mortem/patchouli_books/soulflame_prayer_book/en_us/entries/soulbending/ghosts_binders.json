@@ -1,0 +1,16 @@
+{
+  "name": "Ghosts Binders",
+  "icon": "post_mortem:binding_blade",
+  "category": "post_mortem:soulbending_category",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Ghosts and spirits are remnants of one's soul and as such - barely material. While regular weapons may defeat them this way of dealing with them is brute and unreliable. Thus, soulbenders forge weapons imbued with soul to deal with ghosts called 'ghosts binders'."
+    },
+    {
+      "type": "patchouli:crafting",
+      "text": "Most primitive ghosts binder is a Binding Blade. Tombstones have stains of long gone people's souls and contain some of their power. Thus, weapons made of tombstone are the most basic form of a ghost binder weapon.",
+      "recipe": "post_mortem:binding_blade"
+    }
+  ]
+}
