@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "post_mortem:tombstone_shard"
+    },
+    "1": {
+      "item": "post_mortem:tombstone_shard"
+    },
+    "2": {
+      "item": "post_mortem:haunted_splinter"
+    }
+  },
+  "result": {
+    "item": "post_mortem:binding_blade",
+    "count": 1
+  }
+}
