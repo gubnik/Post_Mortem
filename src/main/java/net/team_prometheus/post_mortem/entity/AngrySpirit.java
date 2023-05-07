@@ -1,6 +1,8 @@
 package net.team_prometheus.post_mortem.entity;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -32,8 +34,6 @@ public class AngrySpirit extends Monster implements Enemy {
     }
     @Override
     public void registerGoals(){
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(8, new RandomStrollGoal(this, 1));
         this.addBehaviourGoals();
     }
     @Override
@@ -47,22 +47,27 @@ public class AngrySpirit extends Monster implements Enemy {
     }
     @Override
     public boolean hurt(@NotNull DamageSource dmg, float amount){
-        if(!(super.hurt(dmg, amount))) {
-            return false;
-        } else if(!(this.level instanceof ServerLevel)) {
-            return false;
-        } else return dmg != PostMortemDamageSource.SOULFLAME;
+        if(dmg == PostMortemDamageSource.SOULFLAME || dmg.getDirectEntity() instanceof LivingEntity attacker && attacker.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:ghosts_binders")))){
+            super.hurt(dmg.bypassArmor(), amount*2);
+            return true;
+        } else if(dmg == PostMortemDamageSource.BLEED || dmg == DamageSource.LIGHTNING_BOLT ||
+        dmg == DamageSource.IN_FIRE || dmg == DamageSource.ON_FIRE || dmg == DamageSource.FREEZE) return false;
+        else return super.hurt(dmg, amount);
     }
     public void addBehaviourGoals() {
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this)).setAlertOthers(Villager.class));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.2, false));
+        this.goalSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1));
+        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.targetSelector.addGoal(7, (new HurtByTargetGoal(this)).setAlertOthers(Villager.class));
     }
     public static AttributeSupplier.Builder createAttributes() {
         AttributeSupplier.Builder builder = Mob.createMobAttributes();
         builder = builder.add(Attributes.MOVEMENT_SPEED, 0.2f);
-        builder = builder.add(Attributes.MAX_HEALTH, 20);
+        builder = builder.add(Attributes.MAX_HEALTH, 30);
+        builder = builder.add(Attributes.ARMOR, 20);
         builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
         builder = builder.add(Attributes.FOLLOW_RANGE, 16);
         return builder;
