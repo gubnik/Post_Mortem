@@ -1,6 +1,7 @@
 package net.team_prometheus.post_mortem.echoes_weapons.triggers;
 
 import net.minecraft.world.item.Item;
+import net.team_prometheus.post_mortem.echoes_weapons.EchoesWeaponsCooldown;
 import net.team_prometheus.post_mortem.echoes_weapons.attacks.SoulflameIgnition;
 import net.team_prometheus.post_mortem.init.SetupAnimations;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -28,18 +29,17 @@ public class SoulflameIgnitionTrigger {
             if(CuriosApi.getCuriosHelper().findFirstCurio(player, ModItems.SOUL_CATCHER.get()).isPresent()) {
                 ItemStack item = CuriosApi.getCuriosHelper().findFirstCurio(player, ModItems.SOUL_CATCHER.get()).get().stack();
                 if ((item).getDamageValue() <= ((item).getMaxDamage() - 8) - 1) {
-                    player.getCooldowns().addCooldown(used_item.getItem(), 100);
+                    EchoesWeaponsCooldown.echoWeaponsCooldown(player, 100, used_item);
                     var animation = SetupAnimations.animationData.get(player);
                     if (animation != null) {
                         animation.setAnimation(new KeyframeAnimationPlayer(Objects.requireNonNull(PlayerAnimationRegistry.getAnimation(new ResourceLocation("post_mortem", "soulflame_ignition")))));
                     }
-                    AnimUtils.disableFirstPersonAnim = false; {
-                        if (item.hurt(8, RandomSource.create(), null)) {
-                            item.shrink(1);
-                            item.setDamageValue(0);
-                        }
+                    AnimUtils.disableFirstPersonAnim = false;
+                    if (item.hurt(8, RandomSource.create(), null)) {
+                        item.shrink(1);
+                        item.setDamageValue(0);
                     }
-                    Post_Mortem.queueServerWork(5, () -> SoulflameIgnition.execute(world, x, (y + 1.3), z, entity));
+                    Post_Mortem.queueServerWork(5, () -> SoulflameIgnition.execute(world, player.getX(), (player.getY() + 1.5), player.getZ(), entity));
                 }
             }
         }

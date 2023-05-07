@@ -9,13 +9,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.LevelAccessor;
 import net.team_prometheus.post_mortem.Post_Mortem;
+import net.team_prometheus.post_mortem.echoes_weapons.EchoesWeaponsCooldown;
 import net.team_prometheus.post_mortem.echoes_weapons.attacks.BloodySlash;
 import net.team_prometheus.post_mortem.init.SetupAnimations;
 
 import java.util.Objects;
 
 public class BloodySlashTrigger {
-    public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack item) {
+    public static void execute(LevelAccessor world, double x, double y, double z, Entity entity, ItemStack used_item) {
         if (entity == null)
             return;
         if(entity instanceof Player player)
@@ -23,13 +24,13 @@ public class BloodySlashTrigger {
                 if (!(player.getAbilities().instabuild)) {
                     player.setHealth(((player.getHealth()) - 2));
                 }
-                player.getCooldowns().addCooldown(item.getItem(), 60);
+                EchoesWeaponsCooldown.echoWeaponsCooldown(player, 100, used_item);
                 var animation = SetupAnimations.animationData.get(player);
                 if (animation != null) {
                     animation.setAnimation(new KeyframeAnimationPlayer(Objects.requireNonNull(PlayerAnimationRegistry.getAnimation(new ResourceLocation("post_mortem", "bloody_slash")))));
                 }
                 AnimUtils.disableFirstPersonAnim = false;
-                Post_Mortem.queueServerWork(4, () -> BloodySlash.execute(world, x, y, z, entity));
+                Post_Mortem.queueServerWork(4, () -> BloodySlash.execute(world, player.getX(), player.getY(), player.getZ(), entity));
         }
     }
 }
