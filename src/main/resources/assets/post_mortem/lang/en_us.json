@@ -1,4 +1,13 @@
 {
+  "advancements.core_advancement.title": "Post Mortem",
+  "advancements.core_advancement.desc": "Install Post Mortem",
+  "advancements.unbound_blood.title": "Sanguimancy",
+  "advancements.unbound_blood.desc": "Obtain an Unbound Blood",
+  "advancements.spirit_fragment.title": "Soulbending",
+  "advancements.spirit_fragment.desc": "Obtain a Spirit Fragment",
+  "advancements.binding_blade.title": "Ghostbusters",
+  "advancements.binding_blade.desc": "Obtain a Binding Blade",
+
   "item.post_mortem.binding_blade": "Binding Blade",
   "item.post_mortem.blood_pact": "Blood Pact",
   "item.post_mortem.bloodletter": "Bloodletter",
@@ -9,8 +18,10 @@
   "item.post_mortem.spirit_fragment": "Spirit Fragment",
   "item.post_mortem.tombstone_shard": "Tombstone Shard",
   "item.post_mortem.unbound_blood": "Unbound Blood",
+  "item.post_mortem.vial": "Vial",
+  "item.post_mortem.blood_vial": "Blood Vial",
 
-  "death.attack.bleeding": "%1$s's blood left their body",
+  "death.attack.bleed": "%1$s's blood left their body",
   "death.attack.soulflame": "%1$s's soul was melted into world's essence",
 
   "itemGroup.sanguimancy_tab": "Post Mortem: Sanguimancy",
