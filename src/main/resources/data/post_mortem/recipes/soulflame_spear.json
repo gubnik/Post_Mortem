@@ -1,25 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " 12",
-    "34 ",
-    "6  "
+    " IF",
+    "IH ",
+    "H  "
   ],
   "key": {
-    "1": {
+    "I": {
       "item": "post_mortem:soulfilled_ingot"
     },
-    "2": {
-      "item": "post_mortem:soulfilled_ingot"
-    },
-    "3": {
-      "item": "post_mortem:soulfilled_ingot"
-    },
-    "4": {
+    "H": {
       "item": "post_mortem:haunted_splinter"
     },
-    "6": {
-      "item": "post_mortem:haunted_splinter"
+    "F": {
+      "item": "minecraft:blaze_powder"
     }
   },
   "result": {

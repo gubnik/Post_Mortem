@@ -1,37 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "012",
-    "345",
-    "678"
+    "SES",
+    "ECE",
+    "SES"
   ],
   "key": {
-    "0": {
+    "S": {
       "item": "post_mortem:soulfilled_ingot"
     },
-    "1": {
+    "E": {
       "item": "minecraft:echo_shard"
     },
-    "2": {
-      "item": "post_mortem:soulfilled_ingot"
-    },
-    "3": {
-      "item": "minecraft:echo_shard"
-    },
-    "4": {
+    "C": {
       "item": "minecraft:sculk_catalyst"
-    },
-    "5": {
-      "item": "minecraft:echo_shard"
-    },
-    "6": {
-      "item": "post_mortem:soulfilled_ingot"
-    },
-    "7": {
-      "item": "minecraft:echo_shard"
-    },
-    "8": {
-      "item": "post_mortem:soulfilled_ingot"
     }
   },
   "result": {

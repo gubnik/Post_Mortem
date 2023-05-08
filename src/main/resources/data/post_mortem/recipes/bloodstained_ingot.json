@@ -1,20 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "01",
-    "23"
+    "BB",
+    "SC"
   ],
   "key": {
-    "0": {
+    "B": {
       "item": "post_mortem:unbound_blood"
     },
-    "1": {
-      "item": "post_mortem:unbound_blood"
-    },
-    "2": {
+    "S": {
       "item": "post_mortem:soulfilled_ingot"
     },
-    "3": {
+    "C": {
       "item": "minecraft:copper_ingot"
     }
   },

@@ -1,18 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0",
-    "1",
-    "2"
+    "T",
+    "T",
+    "S"
   ],
   "key": {
-    "0": {
+    "T": {
       "item": "post_mortem:tombstone_shard"
     },
-    "1": {
-      "item": "post_mortem:tombstone_shard"
-    },
-    "2": {
+    "S": {
       "item": "post_mortem:haunted_splinter"
     }
   },

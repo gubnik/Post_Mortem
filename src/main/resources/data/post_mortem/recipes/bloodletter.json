@@ -1,25 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "  2",
-    "34 ",
-    "67 "
+    "  I",
+    "TI ",
+    "ST "
   ],
   "key": {
-    "2": {
+    "I": {
       "item": "post_mortem:bloodstained_ingot"
     },
-    "3": {
+    "T": {
       "item": "post_mortem:tombstone_shard"
     },
-    "4": {
-      "item": "post_mortem:bloodstained_ingot"
-    },
-    "6": {
+    "S": {
       "item": "post_mortem:haunted_splinter"
-    },
-    "7": {
-      "item": "post_mortem:tombstone_shard"
     }
   },
   "result": {
