@@ -1,5 +1,6 @@
 package net.team_prometheus.post_mortem.item;
 
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -14,6 +15,7 @@ import net.team_prometheus.post_mortem.init.PostMortemTabs;
 import net.team_prometheus.post_mortem.item.curio_items.BloodPact;
 import net.team_prometheus.post_mortem.item.curio_items.SoulCatcher;
 import net.team_prometheus.post_mortem.echoes_weapons.EchoesTooltipProvider;
+import org.jetbrains.annotations.NotNull;
 
 public class ModItems {
 
@@ -32,6 +34,20 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity())));
     public static final RegistryObject<Item> BLOODSTAINED_INGOT = ITEMS.register("bloodstained_ingot",
             () -> new Item(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity())));
+    public static final RegistryObject<Item> VIAL = ITEMS.register("vial",
+            () -> new Item(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB)));
+    public static final RegistryObject<Item> BLOOD_VIAL = ITEMS.register("blood_vial",
+            () -> new Item(new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity()).
+                    food(new FoodProperties.Builder().nutrition(-1).saturationMod(0f).alwaysEat().build())){
+                @Override
+                public @NotNull UseAnim getUseAnimation(@NotNull ItemStack itemstack) {
+                    return UseAnim.CROSSBOW;
+                }
+                @Override
+                public int getUseDuration(@NotNull ItemStack itemstack) {
+                    return 20;
+                }
+            });
 
     // weapons, echo variants
     public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
