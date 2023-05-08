@@ -2,14 +2,11 @@
   "name": "Bleeding",
   "icon": "post_mortem:unbound_blood",
   "category": "post_mortem:sanguimancy_category",
+  "advancement": "post_mortem:unbound_blood",
   "pages":[
     {
       "type": "patchouli:text",
-      "text": "When a weapon infused with Unbound Blood leaves wounds it applies Bleeding. After Bleeding reaches certain level it causes a severe damage to one's body"
-    },
-    {
-      "type": "patchouli:text",
-      "text": "Said damage cannot be lowered or negated neither with armor nor potions. Players, however, take twice as less damage than other creatures."
+      "text": "When a weapon infused with Unbound Blood leaves wounds it applies Bleeding. After Bleeding reaches certain level it causes a severe damage to one's body. Said damage cannot be lowered or negated neither with armor nor potions. Players, however, take twice as less damage than other creatures."
     }
   ]
 }
