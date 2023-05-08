@@ -1,0 +1,12 @@
+{
+  "name": "Soulflame",
+  "icon": "post_mortem:soulflame_spear",
+  "category": "post_mortem:soulbending_category",
+  "advancement": "post_mortem:binding_blade",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Aside from ghosts binders, ghosts are vulnerable to a special flame, caused by a souls raging - soulflame. Soulflame burns ghosts and is by far the most effective weapon against them. However, soulflame is not easily controlled and require soul from Soul Catcher to be casted"
+    }
+  ]
+}

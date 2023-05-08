@@ -2,6 +2,7 @@
   "name": "Ghosts Binders",
   "icon": "post_mortem:binding_blade",
   "category": "post_mortem:soulbending_category",
+  "advancement": "post_mortem:binding_blade",
   "pages":[
     {
       "type": "patchouli:text",

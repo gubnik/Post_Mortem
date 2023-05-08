@@ -2,6 +2,7 @@
   "name": "Spirit Fragment",
   "icon": "post_mortem:spirit_fragment",
   "category": "post_mortem:soulbending_category",
+  "advancement": "post_mortem:spirit_fragment",
   "pages":[
     {
       "type": "patchouli:text",
