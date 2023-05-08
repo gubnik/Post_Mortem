@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "post_mortem:unbound_blood"
+    },
+    "title": {
+      "translate": "advancements.unbound_blood.title"
+    },
+    "description": {
+      "translate": "advancements.unbound_blood.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "unbound_blood": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "post_mortem:unbound_blood"
+            ],
+            "count": {
+              "min": 1,
+              "max": 999
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "post_mortem:core_advancement"
+}

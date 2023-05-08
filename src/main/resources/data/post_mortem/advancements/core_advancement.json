@@ -1,0 +1,23 @@
+{
+  "display": {
+    "background": "post_mortem:textures/screens/tombstone_fragment_block.png",
+    "icon": {
+      "item": "post_mortem:spirit_fragment"
+    },
+    "title": {
+      "translate": "advancements.core_advancement.title"
+    },
+    "description": {
+      "translate": "advancements.core_advancement.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "post_mortem_core_achievement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
