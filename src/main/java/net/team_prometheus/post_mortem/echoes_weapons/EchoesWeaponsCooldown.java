@@ -1,5 +1,7 @@
 package net.team_prometheus.post_mortem.echoes_weapons;
 
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -13,7 +15,7 @@ public class EchoesWeaponsCooldown {
         if (itemHandReference.get() != null) {
             for (int _idx = 0; _idx < itemHandReference.get().getSlots(); _idx++) {
                 ItemStack itemStack = itemHandReference.get().getStackInSlot(_idx).copy();
-                if (itemStack.getOrCreateTag().getDouble("skill") == used_item.getOrCreateTag().getDouble("skill")) {
+                if (itemStack.getOrCreateTag().getDouble("skill") == used_item.getOrCreateTag().getDouble("skill") && itemStack.is(ItemTags.create(new ResourceLocation("forge:sanguine_echoes_empty_weapons")))) {
                     player.getCooldowns().addCooldown(itemStack.getItem(), time);
                 }
             }
