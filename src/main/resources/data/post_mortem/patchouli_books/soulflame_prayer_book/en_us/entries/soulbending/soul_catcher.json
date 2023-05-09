@@ -15,6 +15,7 @@
     },
     {
       "type": "patchouli:text",
+      "title": "Refilling",
       "text": "Soul Catcher can be refilled using ghosts binders. When a ghost is banished using a ghosts binder its essence is consumed by a Soul Catcher, refilling it by a small amount proportionate to the power of banished ghost"
     }
   ]
