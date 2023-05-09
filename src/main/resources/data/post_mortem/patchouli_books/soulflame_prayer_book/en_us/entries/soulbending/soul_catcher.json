@@ -1,0 +1,21 @@
+{
+  "name": "Soul Catcher",
+  "icon": "post_mortem:soul_catcher",
+  "category": "post_mortem:soulbending_category",
+  "advancement": "minecraft:adventure/kill_mob_near_sculk_catalyst",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Storing soul is one of soulbending's core problems: soul is a frail and ethereal substance, and storing it outside of one's body is a task of no ease. With the discovery of sculk it was found that sculk, being a necrophage moss, is very capable at absorbing soul."
+    },
+    {
+      "type": "patchouli:crafting",
+      "text": "However, soul is almost instantly consumed for nutrition of sculk so it is a must to use soulfilled ingots and echo shards to stabilize it and use as a soul battery. Such a battery is called Soul catcher",
+      "recipe": "post_mortem:soul_catcher"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Soul Catcher can be refilled using ghosts binders. When a ghost is banished using a ghosts binder its essence is consumed by a Soul Catcher, refilling it by a small amount proportionate to the power of banished ghost"
+    }
+  ]
+}
