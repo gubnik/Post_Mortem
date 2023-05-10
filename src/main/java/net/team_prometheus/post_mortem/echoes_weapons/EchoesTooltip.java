@@ -8,7 +8,7 @@ import java.util.List;
 
 public class EchoesTooltip {
     public static String getDescription(ItemStack itemstack, List<Component> list) {
-        String returned = switch ((int) itemstack.getOrCreateTag().getDouble("skill")) {
+        return switch ((int) itemstack.getOrCreateTag().getDouble("skill")) {
             case (0) -> "desc.no_skill";
             case (1) -> "desc.soulflame_ignition";
             case (2) -> "desc.bloody_slash";
@@ -18,6 +18,5 @@ public class EchoesTooltip {
             case (6) -> "desc.revenge";
             default -> "default";
         };
-        return returned;
     }
 }
