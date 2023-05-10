@@ -48,13 +48,17 @@ public class EchoesTooltipProvider extends SwordItem {
     @Override
     public void appendHoverText(@NotNull ItemStack itemstack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
+        ChatFormatting color = ChatFormatting.DARK_GRAY;
+        double skill = itemstack.getOrCreateTag().getDouble("skill");
+        if(skill % 2 != 0 && skill % 2 == 0) color = ChatFormatting.RED;
+        else if(skill != 0 && skill % 2 == 1) color = ChatFormatting.AQUA;
         if (Screen.hasControlDown()) {
             if (Objects.equals(EchoesTooltip.getDescription(itemstack, list), "desc.no_skill")) {
-                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list)));
+                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list)).withStyle(color));
             } else {
-                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line1"));
-                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line2"));
-                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line3"));
+                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line1").withStyle(color));
+                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line2").withStyle(color));
+                list.add(Component.translatable(EchoesTooltip.getDescription(itemstack, list) + ".line3").withStyle(color));
             }
         } else {
             list.add(Component.translatable("desc.press_control").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD));
