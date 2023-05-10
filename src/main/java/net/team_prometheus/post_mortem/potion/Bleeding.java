@@ -18,7 +18,7 @@ public class Bleeding extends MobEffect {
     }
 
     @Override
-    public String getDescriptionId() {
+    public @NotNull String getDescriptionId() {
         return "effect.post_mortem.bleeding";
     }
 

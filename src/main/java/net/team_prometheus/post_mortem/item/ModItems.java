@@ -49,13 +49,15 @@ public class ModItems {
                 }
             });
 
-    // weapons, echo variants
+    // weapons
     public static final RegistryObject<Item> BLOODLETTER = ITEMS.register("bloodletter",
-            () -> new EchoesTooltipProvider(5, -2.4f, 1666, 14, 0f, 3, 14, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB));
+            () -> new EchoesTooltipProvider(5, -2.4f, 1666, 14, 0f, 3, 14, Ingredient.of(ModItems.UNBOUND_BLOOD.get()), PostMortemTabs.SANGUIMANCY_TAB, PostMortemRarity.BloodRarity()));
     public static final RegistryObject<Item> SOULFLAME_SPEAR = ITEMS.register("soulflame_spear",
-            () -> new EchoesTooltipProvider(6, -2.6f, 1777, 14, 0f, 3, 17, Ingredient.of(ModItems.SPIRIT_FRAGMENT.get()), PostMortemTabs.SOULBENDING_TAB));
+            () -> new EchoesTooltipProvider(6, -2.6f, 1777, 14, 0f, 3, 17, Ingredient.of(ModItems.SPIRIT_FRAGMENT.get()), PostMortemTabs.SOULBENDING_TAB, PostMortemRarity.SoulflameRarity()));
     public static final RegistryObject<Item> BINDING_BLADE = ITEMS.register("binding_blade",
-            () -> new EchoesTooltipProvider(4, -2.4f, 666, 14, 0f, 2, 12, Ingredient.of(ModItems.TOMBSTONE_SHARD.get()), PostMortemTabs.SOULBENDING_TAB));
+            () -> new EchoesTooltipProvider(4, -2.4f, 666, 14, 0f, 2, 12, Ingredient.of(ModItems.TOMBSTONE_SHARD.get()), PostMortemTabs.SOULBENDING_TAB, PostMortemRarity.SoulflameRarity()));
+    public static final RegistryObject<Item> SACRED_SPEAR = ITEMS.register("sacred_spear",
+            SacredSpear::new);
 
     // curios items
     public static final RegistryObject<Item> BLOOD_PACT = ITEMS.register("blood_pact",

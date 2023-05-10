@@ -29,7 +29,8 @@ public class BloodVialEffect {
             double y = event.getEntity().getY();
             double z = event.getEntity().getZ();
             if (itemStack.getItem() == ModItems.BLOOD_VIAL.get()) {
-                entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100, entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? Objects.requireNonNull(entity.getEffect(PostMortemEffects.BLEEDING.get())).getAmplifier() + 1 : 0));
+                entity.addEffect(new MobEffectInstance(PostMortemEffects.BLEEDING.get(), 100,
+                        entity.hasEffect(PostMortemEffects.BLEEDING.get()) ? Objects.requireNonNull(entity.getEffect(PostMortemEffects.BLEEDING.get())).getAmplifier() + 1 : 0, true, true));
                 entity.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 1));
                 Level level = (Level) world;
                 if (!level.isClientSide()) {
