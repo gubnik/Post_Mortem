@@ -5,13 +5,16 @@
   "advancements.unbound_blood.desc": "Obtain an Unbound Blood",
   "advancements.spirit_fragment.title": "Soulbending",
   "advancements.spirit_fragment.desc": "Obtain a Spirit Fragment",
-  "advancements.binding_blade.title": "Ghostbusters",
+  "advancements.binding_blade.title": "Ghost-busters",
   "advancements.binding_blade.desc": "Obtain a Binding Blade",
+  "advancements.soul_catcher.title": "Heart of Echo",
+  "advancements.soul_catcher.desc": "Obtain a Soul Catcher",
 
   "item.post_mortem.binding_blade": "Binding Blade",
   "item.post_mortem.blood_pact": "Blood Pact",
   "item.post_mortem.bloodletter": "Bloodletter",
   "item.post_mortem.bloodstained_ingot": "Bloodstained Ingot",
+  "item.post_mortem.sacred_spear": "Sacred Spear",
   "item.post_mortem.soul_catcher": "Soul Catcher",
   "item.post_mortem.soulfilled_ingot": "Soulfilled Ingot",
   "item.post_mortem.soulflame_spear": "Soulflame Spear",
@@ -32,6 +35,8 @@
   "enchantment.post_mortem.exorcism": "Exorcism",
   "enchantment.post_mortem.exorcism.desc": "Each level grants a damage bonus against ghosts",
 
+  "effect.post_mortem.bleeding": "Bleeding",
+
   "desc.press_control": "Press CONTROL to reveal information about Echo",
   "desc.no_skill": "No Echo attached",
   "desc.soulflame_ignition.line1": "Soulflame Ignition",
@@ -42,5 +47,9 @@
   "desc.bloody_slash.line3": "Consumes 2 health points",
   "desc.ghostly_form.line1": "Ghostly Form",
   "desc.ghostly_form.line2": "Burn your body in a soulflame in a powerful dash",
-  "desc.ghostly_form.line3": "Consumes 8 soul from the Soul Catcher"
+  "desc.ghostly_form.line3": "Consumes 8 soul from the Soul Catcher",
+
+  "desc.formless_ritual.line1": "Formless Ritual",
+  "desc.formless_ritual.line2": "Raise the spear to the sky, piercing the formless Blood Deity",
+  "desc.formless_ritual.line3": "Consumes 5 health points"
 }

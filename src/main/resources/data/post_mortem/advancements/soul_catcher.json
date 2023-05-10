@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "post_mortem:soul_catcher"
+    },
+    "title": {
+      "translate": "advancements.soul_catcher.title"
+    },
+    "description": {
+      "translate": "advancements.soul_catcher.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "soul_catcher": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "post_mortem:soul_catcher"
+            ],
+            "count": {
+              "min": 1,
+              "max": 999
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "post_mortem:spirit_fragment"
+}
