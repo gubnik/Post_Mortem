@@ -32,6 +32,7 @@ public class Post_Mortem
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        PostMortemAttributes.ATTRIBUTES.register(modEventBus);
         PostMortemEffects.REGISTRY.register(modEventBus);
         ParticleTypes.REGISTRY.register(modEventBus);
         PostMortemEnchantments.REGISTRY.register(modEventBus);

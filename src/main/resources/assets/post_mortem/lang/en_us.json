@@ -1,4 +1,6 @@
 {
+  "attribute.name.generic.magic_damage_reduction": "Magic Resistance",
+
   "advancements.core_advancement.title": "Post Mortem",
   "advancements.core_advancement.desc": "Install Post Mortem",
   "advancements.unbound_blood.title": "Sanguimancy",
@@ -17,6 +19,10 @@
   "item.post_mortem.sacred_spear": "Sacred Spear",
   "item.post_mortem.soul_catcher": "Soul Catcher",
   "item.post_mortem.soulfilled_ingot": "Soulfilled Ingot",
+  "item.post_mortem.soulfilled_helmet": "Soulfilled Helmet",
+  "item.post_mortem.soulfilled_chestplate": "Soulfilled Chestplate",
+  "item.post_mortem.soulfilled_leggings": "Soulfilled Leggings",
+  "item.post_mortem.soulfilled_boots": "Soulfilled Boots",
   "item.post_mortem.soulflame_spear": "Soulflame Spear",
   "item.post_mortem.spirit_fragment": "Spirit Fragment",
   "item.post_mortem.tombstone_shard": "Tombstone Shard",

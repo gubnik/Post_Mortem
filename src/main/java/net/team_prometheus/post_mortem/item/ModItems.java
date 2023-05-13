@@ -1,5 +1,6 @@
 package net.team_prometheus.post_mortem.item;
 
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -9,6 +10,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.team_prometheus.post_mortem.Post_Mortem;
+import net.team_prometheus.post_mortem.armor.ArmorTiers;
+import net.team_prometheus.post_mortem.armor.SoulfilledArmor;
 import net.team_prometheus.post_mortem.init.ModEntities;
 import net.team_prometheus.post_mortem.init.PostMortemRarity;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
@@ -68,6 +71,17 @@ public class ModItems {
     // spawn eggs
     public static final RegistryObject<Item> ANGRY_SPIRIT_SPAWN_EGG = ITEMS.register("angry_spirit_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.ANGRY_SPIRIT, -7233363, -3374717, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
+    // armor
+    public static final RegistryObject<Item> SOULFILLED_HELMET = ITEMS.register("soulfilled_helmet", () -> new SoulfilledArmor(ArmorTiers.SOULFILLED, EquipmentSlot.HEAD, new Item.Properties().tab(PostMortemTabs.SOULBENDING_TAB).rarity(PostMortemRarity.SoulflameRarity())) {
+    });
+    public static final RegistryObject<Item> SOULFILLED_CHESTPLATE = ITEMS.register("soulfilled_chestplate", () -> new SoulfilledArmor(ArmorTiers.SOULFILLED, EquipmentSlot.CHEST, new Item.Properties().tab(PostMortemTabs.SOULBENDING_TAB).rarity(PostMortemRarity.SoulflameRarity())) {
+    });
+    public static final RegistryObject<Item> SOULFILLED_LEGGINGS = ITEMS.register("soulfilled_leggings", () -> new SoulfilledArmor(ArmorTiers.SOULFILLED, EquipmentSlot.LEGS, new Item.Properties().tab(PostMortemTabs.SOULBENDING_TAB).rarity(PostMortemRarity.SoulflameRarity())) {
+    });
+    public static final RegistryObject<Item> SOULFILLED_BOOTS = ITEMS.register("soulfilled_boots", () -> new SoulfilledArmor(ArmorTiers.SOULFILLED, EquipmentSlot.FEET, new Item.Properties().tab(PostMortemTabs.SOULBENDING_TAB).rarity(PostMortemRarity.SoulflameRarity())) {
+    });
+
     public static void register (IEventBus eventBus){
         ITEMS.register(eventBus);
     }
