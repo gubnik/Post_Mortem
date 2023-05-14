@@ -1,0 +1,12 @@
+{
+  "name": "Ghost Resistance",
+  "icon": "post_mortem:soulfilled_chestplate",
+  "category": "post_mortem:soulbending_category",
+  "advancement": "post_mortem:soulfilled_armor",
+  "pages":[
+    {
+      "type": "patchouli:text",
+      "text": "Armor made of soulfilled ingots inherits the otherwordly nature of the material, warding off magic and ghosts' attacks of the one wearing armor. When the resistance reaches 1, the damage is completely negated."
+    }
+  ]
+}

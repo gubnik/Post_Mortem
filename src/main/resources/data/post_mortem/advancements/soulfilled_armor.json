@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "post_mortem:soulfilled_chestplate"
+    },
+    "title": {
+      "translate": "advancements.soulfilled_armor.title"
+    },
+    "description": {
+      "translate": "advancements.soulfilled_armor.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "soulfilled_armor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "post_mortem:soulfilled_helmet",
+              "post_mortem:soulfilled_chestplate",
+              "post_mortem:soulfilled_leggings",
+              "post_mortem:soulfilled_boots"
+            ],
+            "count": {
+              "min": 1,
+              "max": 999
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "post_mortem:spirit_fragment"
+}
