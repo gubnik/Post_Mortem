@@ -27,8 +27,8 @@ public class BloodySlash {
             yaw += 1;
             pitch += 1;
         }
-        final Vec3 _center = new Vec3((x + entity.getLookAngle().x * 2), (y + entity.getLookAngle().y * 2 + 1.4), (z + entity.getLookAngle().z * 2));
-        List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList();
+        final Vec3 center = new Vec3((x + entity.getLookAngle().x * 2), (y + entity.getLookAngle().y * 2 + 1.4), (z + entity.getLookAngle().z * 2));
+        List<Entity> _entfound = world.getEntitiesOfClass(Entity.class, new AABB(center, center).inflate(4 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(center))).toList();
         for (Entity entityiterator : _entfound) {
             if (!(entityiterator == entity) && entityiterator instanceof LivingEntity _entity) {
                 _entity.hurt(PostMortemDamageSource.BLEED, 4);

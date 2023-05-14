@@ -68,7 +68,7 @@ public class AngrySpirit extends Monster implements Enemy {
         builder = builder.add(Attributes.MOVEMENT_SPEED, 0.2f);
         builder = builder.add(Attributes.MAX_HEALTH, 30);
         builder = builder.add(Attributes.ARMOR, 20);
-        builder = builder.add(Attributes.ATTACK_DAMAGE, 3);
+        builder = builder.add(Attributes.ATTACK_DAMAGE, 6);
         builder = builder.add(Attributes.FOLLOW_RANGE, 16);
         return builder;
     }

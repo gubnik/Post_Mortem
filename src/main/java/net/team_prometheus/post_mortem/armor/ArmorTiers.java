@@ -19,7 +19,7 @@ public class ArmorTiers {
         }
         @Override
         public int getDefenseForSlot(EquipmentSlot slot) {
-            return new int[]{2, 4, 6, 2}[slot.getIndex()];
+            return new int[]{2, 3, 4, 1}[slot.getIndex()];
         }
         @Override
         public int getEnchantmentValue() {
