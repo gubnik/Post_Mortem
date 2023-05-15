@@ -1,7 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"bloodboon_ritual": {
+		"formless_ritual": {
 			"animation_length": 4,
 			"bones": {
 				"right_arm": {

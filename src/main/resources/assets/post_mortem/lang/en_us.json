@@ -1,5 +1,6 @@
 {
   "attribute.name.generic.magic_damage_reduction": "Ghost Resistance",
+  "attribute.name.generic.bleed_application": "Bleed Application",
 
   "advancements.core_advancement.title": "Post Mortem",
   "advancements.core_advancement.desc": "Install Post Mortem",

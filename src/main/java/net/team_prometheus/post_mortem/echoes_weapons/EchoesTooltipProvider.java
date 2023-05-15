@@ -1,50 +1,34 @@
 package net.team_prometheus.post_mortem.echoes_weapons;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.team_prometheus.post_mortem.init.PostMortemAttributes;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class EchoesTooltipProvider extends SwordItem {
-    public EchoesTooltipProvider(int dmg, float atkSpeed, int uses, float speed, float dmgBonus, int level, int enchantment, Ingredient repair, CreativeModeTab tab, Rarity rarity) {
-        super(new Tier() {
-            @Override
-            public int getUses() {
-                return uses;
-            }
-
-            @Override
-            public float getSpeed() {
-                return speed;
-            }
-
-            @Override
-            public float getAttackDamageBonus() {
-                return dmgBonus;
-            }
-
-            @Override
-            public int getLevel() {
-                return level;
-            }
-
-            @Override
-            public int getEnchantmentValue() {
-                return enchantment;
-            }
-
-            @Override
-            public @NotNull Ingredient getRepairIngredient() {
-                return repair;
-            }
-        }, dmg, atkSpeed, new Item.Properties().tab(tab).rarity(rarity));
+    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
+    public EchoesTooltipProvider(Tier tier, int dmg, float atkSpeed, CreativeModeTab tab, Rarity rarity, double bleed_application) {
+        super(tier, dmg, atkSpeed, new Item.Properties().tab(tab).rarity(rarity));
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.putAll(super.getDefaultAttributeModifiers(EquipmentSlot.MAINHAND));
+        if(bleed_application != 0){
+            builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(UUID.fromString("19d48280-f359-11ed-a05b-0242ac120003"), "Bleed application", bleed_application, AttributeModifier.Operation.ADDITION));
+        }
+        this.defaultModifiers = builder.build();
     }
-
     @Override
     public void appendHoverText(@NotNull ItemStack itemstack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
@@ -63,5 +47,9 @@ public class EchoesTooltipProvider extends SwordItem {
         } else {
             list.add(Component.translatable("desc.press_control").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD));
         }
+    }
+    @Override
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
+        return slot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(slot);
     }
 }

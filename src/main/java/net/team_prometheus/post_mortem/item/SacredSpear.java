@@ -1,47 +1,31 @@
 package net.team_prometheus.post_mortem.item;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.team_prometheus.post_mortem.echoes_weapons.EchoesTooltip;
+import net.team_prometheus.post_mortem.init.PostMortemAttributes;
 import net.team_prometheus.post_mortem.init.PostMortemRarity;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
-import java.util.Objects;
+import java.util.UUID;
 
 public class SacredSpear extends SwordItem {
+    public final UUID BLEED_APPLICATION = UUID.fromString("19d48280-f359-11ed-a05b-0242ac120003");
+    private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     public SacredSpear() {
-        super(new Tier() {
-            @Override
-            public int getUses() {
-                return 1230;
-            }
-            @Override
-            public float getSpeed() {
-                return 7f;
-            }
-            @Override
-            public float getAttackDamageBonus() {
-                return 0f;
-            }
-            @Override
-            public int getLevel() {
-                return 2;
-            }
-            @Override
-            public int getEnchantmentValue() {
-                return 17;
-            }
-            @Override
-            public @NotNull Ingredient getRepairIngredient() {
-                return null;
-            }
-        }, 5, -2.8f, new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity()));
+        super(WeaponTiers.BLOOD, 5, -2.8f, new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity()));
+        ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+        builder.putAll(super.getDefaultAttributeModifiers(EquipmentSlot.MAINHAND));
+        builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(BLEED_APPLICATION, "Bleed application", 0.6, AttributeModifier.Operation.ADDITION));
+        this.defaultModifiers = builder.build();
     }
     @Override
     public void appendHoverText(@NotNull ItemStack itemstack, Level world, @NotNull List<Component> list, @NotNull TooltipFlag flag) {
@@ -53,5 +37,9 @@ public class SacredSpear extends SwordItem {
         } else {
             list.add(Component.translatable("desc.press_control").withStyle(ChatFormatting.DARK_GRAY).withStyle(ChatFormatting.BOLD));
         }
+    }
+    @Override
+    public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {
+        return slot == EquipmentSlot.MAINHAND ? this.defaultModifiers : super.getDefaultAttributeModifiers(slot);
     }
 }
