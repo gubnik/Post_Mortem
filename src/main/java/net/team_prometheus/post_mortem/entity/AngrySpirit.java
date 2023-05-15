@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.team_prometheus.post_mortem.init.ModEntities;
 import net.team_prometheus.post_mortem.init.PostMortemDamageSource;
+import net.team_prometheus.post_mortem.init.PostMortemGameRules;
 import net.team_prometheus.post_mortem.init.PostMortemMobTypes;
 import org.jetbrains.annotations.NotNull;
 
@@ -50,7 +51,7 @@ public class AngrySpirit extends Monster implements Enemy {
         if(dmg == PostMortemDamageSource.SOULFLAME || dmg.getDirectEntity() instanceof LivingEntity attacker && attacker.getMainHandItem().is(ItemTags.create(new ResourceLocation("forge:ghosts_binders")))){
             super.hurt(dmg.bypassArmor(), amount*2);
             return true;
-        } else if(dmg == PostMortemDamageSource.BLEED || dmg == DamageSource.LIGHTNING_BOLT ||
+        } else if((dmg == PostMortemDamageSource.BLEED && !level.getGameRules().getBoolean(PostMortemGameRules.UNIVERSAL_BLEEDING)) || dmg == DamageSource.LIGHTNING_BOLT ||
         dmg == DamageSource.IN_FIRE || dmg == DamageSource.ON_FIRE || dmg == DamageSource.FREEZE) return false;
         else return super.hurt(dmg, amount);
     }
