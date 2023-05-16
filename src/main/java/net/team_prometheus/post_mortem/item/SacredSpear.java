@@ -10,6 +10,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
+import net.team_prometheus.post_mortem.Post_Mortem;
 import net.team_prometheus.post_mortem.init.PostMortemAttributes;
 import net.team_prometheus.post_mortem.init.PostMortemRarity;
 import net.team_prometheus.post_mortem.init.PostMortemTabs;
@@ -18,13 +19,12 @@ import java.util.List;
 import java.util.UUID;
 
 public class SacredSpear extends SwordItem {
-    public final UUID BLEED_APPLICATION = UUID.fromString("19d48280-f359-11ed-a05b-0242ac120003");
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
     public SacredSpear() {
         super(WeaponTiers.BLOOD, 5, -2.8f, new Item.Properties().tab(PostMortemTabs.SANGUIMANCY_TAB).rarity(PostMortemRarity.BloodRarity()));
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.putAll(super.getDefaultAttributeModifiers(EquipmentSlot.MAINHAND));
-        builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(BLEED_APPLICATION, "Bleed application", 0.6, AttributeModifier.Operation.ADDITION));
+        builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(Post_Mortem.BLEED_APPLICATION, "Bleed application", 0.6, AttributeModifier.Operation.ADDITION));
         this.defaultModifiers = builder.build();
     }
     @Override

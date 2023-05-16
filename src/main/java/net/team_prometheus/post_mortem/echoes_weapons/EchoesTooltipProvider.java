@@ -9,11 +9,10 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.team_prometheus.post_mortem.Post_Mortem;
 import net.team_prometheus.post_mortem.init.PostMortemAttributes;
 import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
@@ -25,7 +24,7 @@ public class EchoesTooltipProvider extends SwordItem {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
         builder.putAll(super.getDefaultAttributeModifiers(EquipmentSlot.MAINHAND));
         if(bleed_application != 0){
-            builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(UUID.fromString("19d48280-f359-11ed-a05b-0242ac120003"), "Bleed application", bleed_application, AttributeModifier.Operation.ADDITION));
+            builder.put(PostMortemAttributes.BLEED_APPLICATION.get(), new AttributeModifier(Post_Mortem.BLEED_APPLICATION, "Bleed application", bleed_application, AttributeModifier.Operation.ADDITION));
         }
         this.defaultModifiers = builder.build();
     }

@@ -17,16 +17,15 @@ import net.team_prometheus.post_mortem.models.AngrySpiritModel;
 import net.team_prometheus.post_mortem.renderer.AngrySpiritRenderer;
 import org.slf4j.Logger;
 import net.minecraftforge.client.event.EntityRenderersEvent;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+
+import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 @Mod(Post_Mortem.MOD_ID)
 public class Post_Mortem
 {
     public static final String MOD_ID = "post_mortem";
+    public static final UUID BLEED_APPLICATION = UUID.fromString("19d48280-f359-11ed-a05b-0242ac120003");
     private static final Logger LOGGER = LogUtils.getLogger();
     public Post_Mortem() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
